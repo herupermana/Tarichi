@@ -1,5 +1,5 @@
 
-<script type="text/javascript" src="<?php echo base_url();?>assets/jquery/ajaxfileupload.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/jquery/ajaxfileupload.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 			$('#upload_loader').hide();				   
@@ -19,7 +19,7 @@
 			
 			$.ajaxFileUpload(
 			{
-				url:'<?php echo site_url('ajax_things/upload_image');?>', 
+				url:'<?php echo site_url('ajax_things/upload_image'); ?>', 
 				secureuri:false,
 				fileElementId:'img_name', 
 				dataType: 'json',
@@ -31,7 +31,7 @@
 			
 					} else {
 			
-						$("#the_image_placer").load('<?php echo site_url('ajax_things/show_image');?>/' + data.nama_file_gambar + '/' + data.nama_file_thumb); // create image and append the html inside <div id=#image>
+						$("#the_image_placer").load('<?php echo site_url('ajax_things/show_image'); ?>/' + data.nama_file_gambar + '/' + data.nama_file_thumb); // create image and append the html inside <div id=#image>
 						
 			
 					}
@@ -58,7 +58,7 @@
             <label>Image file</label> <input type="file" name="img_name" id="img_name" /><br />
             </div>
             <div class="formboxitem">
-            <a href="#" class="btnmerah" id="upload_now" onclick="return ajaxFileUpload();">Upload</a> <img src="<?php echo base_url();?>assets/blueprint/images/ajax_start.gif" id="upload_loader" />
+            <a href="#" class="btnmerah" id="upload_now" onclick="return ajaxFileUpload();">Upload</a> <img src="<?php echo base_url(); ?>assets/blueprint/images/ajax_start.gif" id="upload_loader" />
             </div>
         </div>
     </div>
