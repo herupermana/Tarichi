@@ -1,4 +1,4 @@
-<? $this->load->view('the_master/top'); ?>
+<?php $this->load->view('the_master/top'); ?>
 <script type="text/javascript">
 	$(document).ready(function(){
 			$('#loader_image').hide();	
@@ -14,7 +14,7 @@
 									  });
 							   });
 </script>
-<?php echo form_open('the_master/my_profile');?>
+<?php echo form_open('the_master/my_profile'); ?>
 <div class="formbox penuh">
 	<div class="formboxtitle">
         <div>
@@ -30,11 +30,11 @@
     <div class="separo">
     	<div class="formboxitem">
             <label>Username</label><br />
-            <input type="text" name="username" value="<?php echo $row->username;?>" id="username">
+            <input type="text" name="username" value="<?php echo $row->username; ?>" id="username">
         </div>
         <div class="formboxitem">
 	        <label>Name</label><br />
-    	    <input type="text" name="nama_lengkap" value="<?php echo $row->nama_lengkap;?>" id="nama_lengkap">
+    	    <input type="text" name="nama_lengkap" value="<?php echo $row->nama_lengkap; ?>" id="nama_lengkap">
         </div>
    
     	<div class="formboxitem">
@@ -55,5 +55,5 @@
         
     </div>
 </div>
-<?php echo form_close();?>
-<? $this->load->view('the_master/footer');?>
+<?php echo form_close(); ?>
+<?php $this->load->view('the_master/footer'); ?>

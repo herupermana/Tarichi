@@ -1,4 +1,4 @@
-<? $this->load->view('the_master/top');?>
+<?php $this->load->view('the_master/top'); ?>
 <fieldset>
 	<h3>Credits</h3>
     <hr />
@@ -19,4 +19,4 @@
     Using bluprintCSS to maintain the CSS for this site.
     </p>
 </fieldset>
-<? $this->load->view('the_master/footer');?>
+<?php $this->load->view('the_master/footer'); ?>

@@ -1,4 +1,8 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+ if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -38,16 +42,16 @@
 |
 */
 
-$route['default_controller'] = "skin_engine/home_page";
+$route['default_controller'] = 'skin_engine/home_page';
 $route['404_override'] = '';
 
-$route['the_page/(.*)']='skin_engine/read_page/index/$1';
-$route['read/(.*)']='skin_engine/read_post/index/$1';
-$route['category/(.*)']='skin_engine/per_category/index/$1';
-$route['tag/(.*)']='skin_engine/per_tag/index/$1';
-$route['section/(.*)']='skin_engine/home_page/section/$1';
-$route['section']='skin_engine/home_page';
-$route['feed']='skin_engine/feed';
+$route['the_page/(.*)'] = 'skin_engine/read_page/index/$1';
+$route['read/(.*)'] = 'skin_engine/read_post/index/$1';
+$route['category/(.*)'] = 'skin_engine/per_category/index/$1';
+$route['tag/(.*)'] = 'skin_engine/per_tag/index/$1';
+$route['section/(.*)'] = 'skin_engine/home_page/section/$1';
+$route['section'] = 'skin_engine/home_page';
+$route['feed'] = 'skin_engine/feed';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

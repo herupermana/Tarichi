@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title><?php echo $site_name;?> | <?php echo $site_slogan;?></title>
+<title><?php echo $site_name; ?> | <?php echo $site_slogan; ?></title>
 </head>
 <style>
 	
 	body{
-		background:url(<?php echo $base_site_url;?>blueprint/images/site_bg.jpg);
+		background:url(<?php echo $base_site_url; ?>blueprint/images/site_bg.jpg);
 		padding:0;
 		margin:0;	
 		font-size:12px;
@@ -86,7 +86,7 @@
 		text-align:center;	
 		width:100%;
 		
-		background:url(<?php echo $base_site_url;?>blueprint/images/before_footer.png);
+		background:url(<?php echo $base_site_url; ?>blueprint/images/before_footer.png);
 	}
 	
 	.pagination a{
@@ -111,7 +111,7 @@
 		padding-left:3px;
 		padding-right:3px;
 		padding-top:10px;
-		background: url(<?php echo $base_site_url;?>blueprint/images/footerbg.png) repeat-x;	
+		background: url(<?php echo $base_site_url; ?>blueprint/images/footerbg.png) repeat-x;	
 		color:#FFF;
 		margin-top:0;
 		clear:both;
@@ -150,9 +150,9 @@
 <body>
 	<div class="container">
     	<div id="header">
-      		<?php echo $site_name;?><br />
-			<?php echo $site_slogan;?>
+      		<?php echo $site_name; ?><br />
+			<?php echo $site_slogan; ?>
         </div>
         <div id="menu">
-			<ul><?php echo $this->template_model->create_menu('Beranda',$this->uri->uri_string());?></ul>
+			<ul><?php echo $this->template_model->create_menu('Beranda', $this->uri->uri_string()); ?></ul>
         </div>

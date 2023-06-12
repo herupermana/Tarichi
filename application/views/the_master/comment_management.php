@@ -1,21 +1,21 @@
-<? $this->load->view('the_master/top'); ?>
+<?php $this->load->view('the_master/top'); ?>
 <div class="formbox span-24">
 	<div class="formboxtitle">
 		Comment Management
     </div>
-    <? if($site_comment_moderation==0)
-	{
-		?>
+    <?php if ($site_comment_moderation == 0) {
+    ?>
         
     <div class="formboxitem"><font color="red">Comment Moderation is Off !!</font></div>
-    <? } else { ?>
+    <?php
+} else { ?>
    		<div class="formboxitem"><font color="green">Comment Moderation is On</font></div>
-    <? } ?>
+    <?php } ?>
     		<script type="text/javascript">
 				$(document).ready(function(){
 							$('.approve').click(function(){
 										var c_id=$(this).attr('alt');
-										$.post('<?php echo site_url('ajax_things/approve_comment');?>',{ comment_id : c_id },function(data){
+										$.post('<?php echo site_url('ajax_things/approve_comment'); ?>',{ comment_id : c_id },function(data){
 											$('#status_'+c_id).html('Approved');
 											});
 										$(this).hide();
@@ -24,7 +24,7 @@
 							
 							$('.delete').click(function(){
 										var c_id=$(this).attr('alt');
-										$.post('<?php echo site_url('ajax_things/delete_comment');?>',{ comment_id : c_id },function(data){
+										$.post('<?php echo site_url('ajax_things/delete_comment'); ?>',{ comment_id : c_id },function(data){
 											$('#'+c_id).hide();
 											});
 
@@ -55,7 +55,7 @@
 												var comment_status=$('#status_'+checked.eq(i).val()).attr('title');
 												if(comment_status=='0')
 												{	
-													$.post('<?php echo site_url('ajax_things/approve_comment');?>',{ comment_id : checked.eq(i).val() },function(data){
+													$.post('<?php echo site_url('ajax_things/approve_comment'); ?>',{ comment_id : checked.eq(i).val() },function(data){
 														
 																																		   });
 													$('#status_'+checked.eq(i).val()).html('Approved');	
@@ -73,9 +73,9 @@
 										   });
 			</script>
         	
-            <? $querypending=$this->comment_model->get_pending("yes",$start);
-			   $totalpending=$querypending->num_rows; ?>
-            	<div class="formboxitem">Pending Comments (<span class="total_comment"><?php echo $totalpending;?>)</span></div>
+            <?php $querypending = $this->comment_model->get_pending('yes', $start);
+               $totalpending = $querypending->num_rows; ?>
+            	<div class="formboxitem">Pending Comments (<span class="total_comment"><?php echo $totalpending; ?>)</span></div>
                 
                 	<div class="t_header span-24">
                	    	<div class="t_d span-1"><input type="checkbox" class="maincheck"></div>
@@ -84,48 +84,48 @@
                         <div class="t_d span-5">On Post</div>
                         <div class="t_d_last span-3">Status</div>
                   	</div>
-                <?
-				
-				$query=$this->comment_model->get_pending("no",$start);
-				$i=0;
-				$eod='';
-				   foreach($query->result() as $rows)
-				   {
-					   $i++;
-					   if($i%2<>0)
-					   	  $eod="t_r_odd";
-					   else
-					   	  $eod="t_r_even";
-					   ?>
-                   <div class="<?php echo $eod;?> span-24" id="<?php echo $rows->comment_id;?>">
-                   		<div class="t_d_in span-1"><input type="checkbox" class="childcheck" value="<?php echo $rows->comment_id;?>"></div>                       <td>
-						<div class="t_d_in span-4"><?php echo $rows->comment_name;?> <br /><span class="small"><?php echo $rows->comment_email;?><br /><span class="small"><?php echo $rows->comment_website;?></span></span></div>
+                <?php
+
+                $query = $this->comment_model->get_pending('no', $start);
+                $i = 0;
+                $eod = '';
+                   foreach ($query->result() as $rows) {
+                       $i++;
+                       if ($i % 2 != 0) {
+                           $eod = 't_r_odd';
+                       } else {
+                           $eod = 't_r_even';
+                       } ?>
+                   <div class="<?php echo $eod; ?> span-24" id="<?php echo $rows->comment_id; ?>">
+                   		<div class="t_d_in span-1"><input type="checkbox" class="childcheck" value="<?php echo $rows->comment_id; ?>"></div>                       <td>
+						<div class="t_d_in span-4"><?php echo $rows->comment_name; ?> <br /><span class="small"><?php echo $rows->comment_email; ?><br /><span class="small"><?php echo $rows->comment_website; ?></span></span></div>
 						<div class="t_d_in span-9">
-                        	<span class="small"><?php echo mdate($site_date_format,$rows->comment_date);?></span><br />
-							<?php echo $rows->comment_content;?><br />
-                            <? if($rows->comment_status==0) { ?>
-                            	<a href="javascript:void(0);" class="approve" alt="<?php echo $rows->comment_id;?>">Approve</a> | <? } ?><a href="#">Edit</a> | <a href="javascript:void(0);" class="delete" alt="<?php echo $rows->comment_id;?>">Delete</a>
+                        	<span class="small"><?php echo mdate($site_date_format, $rows->comment_date); ?></span><br />
+							<?php echo $rows->comment_content; ?><br />
+                            <?php if ($rows->comment_status == 0) { ?>
+                            	<a href="javascript:void(0);" class="approve" alt="<?php echo $rows->comment_id; ?>">Approve</a> | <?php } ?><a href="#">Edit</a> | <a href="javascript:void(0);" class="delete" alt="<?php echo $rows->comment_id; ?>">Delete</a>
                         </div>
-                        <div class="t_d_in span-5"><?php echo $rows->the_post_title;?></div>
+                        <div class="t_d_in span-5"><?php echo $rows->the_post_title; ?></div>
                         <div class="t_d_last span-3">
-                        	<div class="comment_status" title="<?php echo $rows->comment_status;?>" id="status_<?php echo $rows->comment_id;?>">
-							<? if($rows->comment_status==0)
-				   				echo "Pending";
-								elseif($rows->comment_status==1)
-								echo "Approved";
-							?>
+                        	<div class="comment_status" title="<?php echo $rows->comment_status; ?>" id="status_<?php echo $rows->comment_id; ?>">
+							<?php if ($rows->comment_status == 0) {
+                           echo 'Pending';
+                       } elseif ($rows->comment_status == 1) {
+                           echo 'Approved';
+                       } ?>
                             </div>
                          </div>
                      </div>
 				   
                    
-                <? } ?>
+                <?php
+                   } ?>
                 
               
-                <div class="t_header span-24" style="text-align:left;font-size:15px;color:#FFF;"><?php echo $the_pagination;?></div>
-            	<? $action=array('00'=>'Select Action','0'=>'Approve Selected','1'=>'Delete Selected');
-				          echo form_dropdown('action',$action,'','id="actions"'); ?>
+                <div class="t_header span-24" style="text-align:left;font-size:15px;color:#FFF;"><?php echo $the_pagination; ?></div>
+            	<?php $action = ['00'=>'Select Action', '0'=>'Approve Selected', '1'=>'Delete Selected'];
+                          echo form_dropdown('action', $action, '', 'id="actions"'); ?>
 				
     
 </div>
-<? $this->load->view('the_master/footer');?>
+<?php $this->load->view('the_master/footer'); ?>

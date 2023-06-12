@@ -1,4 +1,8 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+
+ if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -37,8 +41,7 @@
 |
 */
 
-$autoload['packages'] = array(APPPATH.'third_party');
-
+$autoload['packages'] = [APPPATH.'third_party'];
 
 /*
 | -------------------------------------------------------------------
@@ -52,8 +55,7 @@ $autoload['packages'] = array(APPPATH.'third_party');
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('session','database','calendar');
-
+$autoload['libraries'] = ['session', 'database', 'calendar'];
 
 /*
 | -------------------------------------------------------------------
@@ -64,8 +66,7 @@ $autoload['libraries'] = array('session','database','calendar');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','form','date','text','language');
-
+$autoload['helper'] = ['url', 'form', 'date', 'text', 'language'];
 
 /*
 | -------------------------------------------------------------------
@@ -80,8 +81,7 @@ $autoload['helper'] = array('url','form','date','text','language');
 |
 */
 
-$autoload['config'] = array();
-
+$autoload['config'] = [];
 
 /*
 | -------------------------------------------------------------------
@@ -96,8 +96,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array();
-
+$autoload['language'] = [];
 
 /*
 | -------------------------------------------------------------------
@@ -109,8 +108,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('flash_item_model','comment_model','global_model','the_tag_model');
-
+$autoload['model'] = ['flash_item_model', 'comment_model', 'global_model', 'the_tag_model'];
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
